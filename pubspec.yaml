@@ -1,17 +1,19 @@
-name: bootstrap-angulardart
+name: bootstrap_angular
 version: 0.0.1
-authors: 
+authors:
 - Günter Zöchbauer <guenter@gzoechbauer.com>
 description: >
-  A Dart port of UI Bootstrap (angular-ui.github.io/bootstrap) 
-homepage: https://github.com/zoechi/bootstrap-angulardart
-documentation: http://zoechi.github.io/bootstrap-angulardart/docs/index.html
+  A Dart port of UI Bootstrap (angular-ui.github.io/bootstrap)
+homepage: https://github.com/zoechi/bootstrap_angular
+documentation: http://zoechi.github.io/bootstrap_angular/docs/index.html
 environment:
   sdk: ">=1.0.0 <2.0.0"
 dependencies:
-  angular: 
+  angular:
     git: https://github.com/angular/angular.dart.git
   browser: any
   js: any
+  http: any
+  markdown: any
 dev_dependencies:
   unittest: ">=0.9.0 <0.10.0"
