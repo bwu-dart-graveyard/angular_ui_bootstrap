@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en" ng-app id="top">
   <head ng-controller="head-ctrl">
     <meta charset="utf-8">
@@ -20,6 +21,17 @@
     <link rel="stylesheet" href="assets/rainbow.css"/>
     <link rel="stylesheet" href="assets/demo.css"/>
     <link rel="author" href="https://github.com/zoechi/bootstrap_angular/graphs/contributors">
+    <style>
+      .ng-hide {
+
+        display:none!important;
+
+        //this is just another form of hiding an element
+        position:absolute;
+        top:-9999px;
+        left:-9999px;
+      }
+    </style>
   </head>
 
   <body class="ng-cloak" ng-controller="main-ctrl">
@@ -191,7 +203,8 @@
                 </small></h1>
               </div>
               <div class="row">
-                <div class="col-md-6" ba-bind-html='module.docs.html'>
+<!--                 <div class="col-md-6" ba-bind-html='module.docs.html'> -->
+                <div class="col-md-6" ng-include='src/{{module.name}}/demo.html'>
                 </div>
                 <div class="col-md-6" ba-bind-html='module.docs.md'>
                 </div>

@@ -1,6 +1,6 @@
 part of bootstrap_angular.demo;
 
-@NgController(
+@ng.NgController(
     selector: '[ng-controller=head-ctrl]',
     publishAs: 'ctrl'
 //    ,map: const {

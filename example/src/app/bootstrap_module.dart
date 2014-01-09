@@ -45,21 +45,22 @@ class BootstrapModule {
 class ModulesList implements List<BootstrapModule> {
   static final List<BootstrapModule> _modules = [
      new BootstrapModule('accordion', 'Accordion'),
-     new BootstrapModule('alert', 'Alert'),
-     new BootstrapModule('buttons', 'Buttons'),
-     new BootstrapModule('carousel', 'Carousel'),
-     new BootstrapModule('collapse', 'Collapse'),
-     new BootstrapModule('datepicker', 'Datepicker'),
-     new BootstrapModule('dropdown_toggle', 'Dropdown Toggle'),
-     new BootstrapModule('modal', 'Modal'),
-     new BootstrapModule('pagination', 'Pagination'),
-     new BootstrapModule('popover', 'Popover'),
-     new BootstrapModule('progressbar', 'Progressbar'),
-     new BootstrapModule('rating', 'Rating'),
-     new BootstrapModule('tabs' , 'Tabs'),
-     new BootstrapModule('timepicker', 'Timepicker'),
-     new BootstrapModule('tooltip', 'Tooltip'),
-     new BootstrapModule('typeahead', 'Typeahead')];
+//     new BootstrapModule('alert', 'Alert'),
+//     new BootstrapModule('buttons', 'Buttons'),
+//     new BootstrapModule('carousel', 'Carousel'),
+//     new BootstrapModule('collapse', 'Collapse'),
+//     new BootstrapModule('datepicker', 'Datepicker'),
+//     new BootstrapModule('dropdown_toggle', 'Dropdown Toggle'),
+//     new BootstrapModule('modal', 'Modal'),
+//     new BootstrapModule('pagination', 'Pagination'),
+//     new BootstrapModule('popover', 'Popover'),
+//     new BootstrapModule('progressbar', 'Progressbar'),
+     new BootstrapModule('rating', 'Rating')//,
+//     new BootstrapModule('tabs' , 'Tabs'),
+//     new BootstrapModule('timepicker', 'Timepicker'),
+//     new BootstrapModule('tooltip', 'Tooltip'),
+//     new BootstrapModule('typeahead', 'Typeahead')
+     ];
 
   BootstrapModule operator [](int index) {
     return _modules[index];

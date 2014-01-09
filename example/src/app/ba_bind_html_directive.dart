@@ -14,7 +14,7 @@ part of bootstrap_angular.demo;
  *
  *     <div ba-bind-html="htmlVar"></div>
  */
-@NgDirective(
+@ng.NgDirective(
   selector: '[ba-bind-html]',
   map: const {'baBindHtml': '=>value'})
 class BaBindHtmlDirective {
@@ -22,10 +22,15 @@ class BaBindHtmlDirective {
   // use an optionally loaded `$sanitize` service.
   static dom.NodeValidator validator;
 
-  dom.Element element;
+  dom.Element _element;
+  ng.Compiler _compiler;
+  ng.Scope _scope;
+  ng.Injector _injector;
 
-  BaBindHtmlDirective(this.element) {
+  BaBindHtmlDirective(this._element, this._scope, this._injector, this._compiler) {
+    print('BaBindHtmlDirective');
     List<String> ngDirectiveAttributes = ['ng-class', 'ng-change', 'ng-click', 'ng-controller', 'ng-disabled', 'ng-hide', 'ng-init', 'ng-model', 'ng-options', 'ng-repeat', 'ng-required', 'ng-show', 'ng-src'];
+    ngDirectiveAttributes.addAll(['accordion-demo-ctrl', 'rating-demo-ctrl']);
     dom.NodeValidatorBuilder nvb = new dom.NodeValidatorBuilder.common()
       ..allowImages()
       ..allowElement('A', attributes: ['href']..addAll(ngDirectiveAttributes))
@@ -69,6 +74,12 @@ class BaBindHtmlDirective {
    * expression is innerHTML'd according to the rules specified in this class'
    * documention.
    */
-  set value(value) => element.setInnerHtml((value == null ? '' : value.toString()),
-                                           validator: validator) ;
+  set value(value) {
+    _element.setInnerHtml((value == null ? '' : value.toString()),
+                                             validator: validator);
+    if(value != null) {
+      ng.BlockFactory template = _compiler(_element.children);
+      ng.Block block = template.bind(_injector)(_scope);
+    }
+  }
 }

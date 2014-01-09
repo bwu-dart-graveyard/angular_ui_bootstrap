@@ -3,14 +3,18 @@ library bootstrap_angular.demo;
 import 'dart:async' show Completer, Future, Future;
 import 'dart:html' as dom;
 import 'dart:math' show Random;
-import 'package:angular/angular.dart';
+import 'package:angular/angular.dart' as ng;
+import 'package:markdown/markdown.dart' as markdown;
+
 import 'package:bootstrap_angular/elements.dart';
 
 //import 'package:di/di.dart';
 // import 'package:perf_api/perf_api.dart';
 
 import 'src/accordion/demo.dart';
-import 'package:markdown/markdown.dart' as markdown;
+import 'src/modal/demo.dart';
+import 'src/rating/demo.dart';
+
 
 part 'src/app/bootstrap_module.dart';
 part 'src/app/docs.dart';
@@ -22,23 +26,24 @@ part 'src/app/plunker.dart';
 part 'src/app/ba_bind_html_directive.dart';
 
 void main() {
-  ngBootstrap(module: new BootstrapDemoApp());
+  ng.ngBootstrap(module: new BootstrapDemoApp());
 }
 
-class BootstrapDemoApp extends Module {
+class BootstrapDemoApp extends ng.Module {
   BootstrapDemoApp() {
+    type(BaBindHtmlDirective);
     type(HeadController);
     type(MainController);
-    type(AccordionDemoCtrl);
-    type(PlunkerCtrl);
-    type(BaBindHtmlDirective);
+    type(AccordionDemoController);
+    type(PlunkerController);
+    type(PlunkerContentDirective);
+    type(ModalDemoController);
+    type(RatingDemoController);
 
-    type(Accordion);
-    type(AccordionController);
-    type(AccordionHeading);
-    type(AccordionTransclude);
+    install(new AccordionModule());
     type(Collapse);
-    install(new Modal());
+    install(new ModalModule());
+    install(new RatingModule());
     type(Transition);
     //factory(new ModalFactory(), )
 

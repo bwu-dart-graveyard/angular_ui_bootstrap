@@ -1,14 +1,14 @@
 part of bootstrap_angular.demo;
 
-@NgController(
+@ng.NgController(
     selector: '[ng-controller=main-ctrl]',
     publishAs: 'ctrl')
 class MainController {
-  Scope _scope;
-  final Http _http;
+  ng.Scope _scope;
+  final ng.Http _http;
   final dom.HtmlDocument _document;
   final ModalComponent _modal;
-  final OrderByFilter _orderByFilter;
+  final ng.OrderByFilter _orderByFilter;
   var _url = "http://50.116.42.77:3001";
   final ModulesList _modules;
   final Package _package;

@@ -3,7 +3,7 @@ part of bootstrap_angular.elements;
 /**
  * The collapsible directive indicates a block of html that will expand and collapse
  */
-@NgDirective(
+@ng.NgDirective(
     selector: 'collapse',
     publishAs: 'collapse',
     map: const {
@@ -14,14 +14,14 @@ part of bootstrap_angular.elements;
 class Collapse {
   var initialAnimSkip = true;
   var currentTransition = null;
-  HtmlElement element; 
-  Map<String, String> attrs;
+  final HtmlElement _element;
+  final Map<String, String> _attrs;
   var transition;
   var newTransition;
-  Scope scope;
-  
-  Collapse(this.element, Map this.attrs, this.scope) {
-    scope.$watch(attrs['collapse'], (bool shouldCollapse) {
+  final ng.Scope _scope;
+
+  Collapse(this._element, this._attrs, this._scope) {
+    _scope.$watch(_attrs['collapse'], (bool shouldCollapse) {
       if (shouldCollapse) {
         collapse();
       } else {
@@ -29,9 +29,9 @@ class Collapse {
       }
     });
   }
-  
+
   Function doTransition(Map change) {
-    newTransition = transition(element, change);
+    newTransition = transition(_element, change);
     if (currentTransition) {
       currentTransition.cancel();
     }
@@ -47,21 +47,21 @@ class Collapse {
     }
   }
 
-  
+
   void expand() {
     if (initialAnimSkip) {
       initialAnimSkip = false;
       expandDone();
     } else {
-      element
+      _element
         ..classes.remove('collapse')
         ..classes.add('collapsing');
-      doTransition({ 'height': '${element.children[0].scrollHeight}px' }).then(expandDone);
+      doTransition({ 'height': '${_element.children[0].scrollHeight}px' }).then(expandDone);
     }
   }
 
   void expandDone() {
-    element
+    _element
     ..classes.remove('collapsing')
     ..classes.add('collapse in')
     ..style.height = 'auto';
@@ -71,14 +71,14 @@ class Collapse {
     if (initialAnimSkip) {
       initialAnimSkip = false;
       collapseDone();
-      element.style.height = 0;
+      _element.style.height = 0;
     } else {
       // CSS transitions don't work with height: auto, so we have to manually change the height to a specific value
-      element.style.height = '${element.children[0].scrollHeight}px';
+      _element.style.height = '${_element.children[0].scrollHeight}px';
       //trigger reflow so a browser relaizes that height was updated from auto to a specific value
-      var x = element.children[0].offsetWidth;
+      var x = _element.children[0].offsetWidth;
 
-      element.classes
+      _element.classes
         ..remove('collapse in')
         ..add('collapsing');
 
@@ -87,7 +87,7 @@ class Collapse {
   }
 
   collapseDone() {
-    element.classes
+    _element.classes
       ..remove('collapsing')
       ..add('collapse');
   }

@@ -8,8 +8,8 @@ part 'modal_stack.dart';
 part 'modal_window_component.dart';
 part 'stacked_map.dart';
 
-class Modal extends ng.Module {
-  Modal() {
+class ModalModule extends ng.Module {
+  ModalModule() {
     type(ModalComponent);
     type(ModalBackdropComponent);
     type(ModalStack);
@@ -19,6 +19,13 @@ class Modal extends ng.Module {
 }
 
 
+@ng.NgComponent(
+    selector: 'modal-xxx',
+    publishAs: 'ctrl',
+    templateUrl: 'packages/bootstrap_angular/modal/modal.html')
 class ModalComponent {
 
+  ModalComponent() {
+    print(ModalComponent);
+  }
 }
