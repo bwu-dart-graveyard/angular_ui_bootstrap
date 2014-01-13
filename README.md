@@ -8,9 +8,7 @@
 
 ## Demo
 
-<!--
-Do you want to see directives in action? Visit http://angular-ui.github.io/bootstrap/!
--->
+Do you want to see directives in action? Visit http://zoechi.github.io/bootstrap_angular/build!
 
 ## Installation
 
