@@ -6,6 +6,7 @@ import 'package:angular/angular.dart' as ng;
 
 export 'accordion/accordion.dart';
 export 'alert/alert.dart';
+export 'dropdown_toggle/dropdown_toggle.dart';
 export 'modal/modal.dart';
 export 'rating/rating.dart';
 

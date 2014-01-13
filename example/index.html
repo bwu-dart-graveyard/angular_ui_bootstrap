@@ -54,7 +54,7 @@
                 UI Bootstrap
               </a>
               <li class="dropdown">
-                <a href="#" role="button" class="dropdown-toggle">
+                <a href="#" role="button" class="dropdown-toggle" ng-controller="dropdown-ctrl">
                     Directives <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
@@ -79,7 +79,7 @@
       <header class="bs-header text-center" id="overview">
         <div class="container">
           <h1>
-            AngularDart UI Bootstrap
+            UI Bootstrap
           </h1>
 
           <p>Bootstrap components written in pure <a href="https://github.com/angular/angular.dart">AngularDart</a> by <a
@@ -146,7 +146,7 @@
               <ul class="nav bs-sidenav">
                 <li><a href="#"><strong>Directives</strong></a></li>
                 <!-- <% demoModules.forEach(function(module) {  %> -->
-                    <li ng-repeat="module in ctrl.modules"><a href="#{{ module.name }}">{{ module.displayName }}</a></li>
+                    <li ng-repeat="module in ctrl.modules"><a href="#{{ module.name | toLower }}">{{ module.displayName }}</a></li>
                 <!-- <% }); %> -->
               </ul>
             </section>

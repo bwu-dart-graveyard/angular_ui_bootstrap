@@ -50,7 +50,7 @@ class ModulesList implements List<BootstrapModule> {
 //     new BootstrapModule('carousel', 'Carousel'),
      new BootstrapModule('collapse', 'Collapse'),
 //     new BootstrapModule('datepicker', 'Datepicker'),
-//     new BootstrapModule('dropdown_toggle', 'Dropdown Toggle'),
+     new BootstrapModule('dropdown_toggle', 'Dropdown Toggle'),
 //     new BootstrapModule('modal', 'Modal'),
 //     new BootstrapModule('pagination', 'Pagination'),
 //     new BootstrapModule('popover', 'Popover'),

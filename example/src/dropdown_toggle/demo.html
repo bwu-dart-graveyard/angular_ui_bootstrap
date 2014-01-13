@@ -1,9 +1,9 @@
-<li class="dropdown" ng-controller="DropdownCtrl">
-  <a class="dropdown-toggle">
+<li class="dropdown" ng-controller="dropdown-toggle-demo-ctrl">
+  <a class="dropdown-toggle" ng-controller="dropdown-ctrl">
     Click me for a dropdown, yo!
   </a>
   <ul class="dropdown-menu">
-    <li ng-repeat="choice in items">
+    <li ng-repeat="choice in ctrl.items">
       <a>{{choice}}</a>
     </li>
   </ul>
