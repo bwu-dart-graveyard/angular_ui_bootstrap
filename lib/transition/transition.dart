@@ -9,73 +9,90 @@ part of bootstrap_angular.elements;
  *   - As a function, it represents a function to be called that will cause the transition to occur.
  * @return {Promise}  A promise that is resolved when the transition finishes.
  */
-@ng.NgDirective(
-    selector: 'transition',
-    publishAs: 'transition'
-//    map: const {
-//      'transition' : '<=>transistion',
-//      'timeout' : '@timeout'
-//    }
-)
-//@NgInjectableService()
 class Transition implements Function {
-  var q;
-  var timeout;
+  //var q;
+  //@ng.NgAttr('timeout') var timeout;
   var rootScope;
-  var transition;
-  var deferred;
+  //var transition;
+  Completer _completer;
   StreamSubscription transitionEndEventSubscription = null;
+  dom.Element _element;
+  var _trigger;
+  Map _options;
+  String _endEventName;
 
-  Transition(this.q, this.timeout, this.rootScope) {
-    deferred = q.defer();
-  }
+  Transition();
 
   void transitionEndHandler(event) {
-    rootScope.apply(() {
-      if(transitionEndEventSubscription != null) {
-        transitionEndEventSubscription.cancel();
-      }
-      // TODO deferred.resolve(element);
-    });
+    //print('transitionEndHandler');
+
+    if(transitionEndEventSubscription != null) {
+      transitionEndEventSubscription.cancel();
+    }
+    if(!_completer.isCompleted) {
+      _completer.complete(_element);
+    }
+
   }
 
-  void call(HtmlElement element, trigger, [Map options = const {}]){
+  Future<dom.Element> call(dom.Element element, trigger, [Map options = const {}]){
+    //print('Transition.call(${element.localName}, $trigger, $options');
 
+    _completer = new Completer();
+    this._element = element;
+    this._trigger = trigger;
+    this._options = options;
 
-    var endEventName = transition[options['animation'] ? "animationEndEventName" : "transitionEndEventName"];
+    _endEventName = _options.containsKey('animation') ? "animationEndEventName" : "transitionEndEventName";
 
-    if (endEventName) {
-      element.onTransitionEnd.listen(transitionEndHandler);
+    if (_endEventName != null) {
+      //print('add transitionEndHandler');
+      transitionEndEventSubscription = _element.onTransitionEnd.listen(transitionEndHandler);
     }
 
     // Wrap in a timeout to allow the browser time to update the DOM before the transition is to occur
-    timeout(() {
-      if ( trigger is String ) {
-        element.classes.add(trigger);
-      } else if ( trigger is Function ) {
-        trigger(element);
-      } else if ( trigger is Map) {
-        trigger.forEach((k, v) => element.style.setProperty('k', v));
+    Timer.run(() {
+      if ( _trigger is String ) {
+        _element.classes.add(_trigger);
+      } else if (_trigger is Function ) {
+        _trigger(_element);
+      } else if (_trigger is Map) {
+        //print('trigger is map');
+        _trigger.forEach((k, v) => _element.style.setProperty(k, v.toString()));
       }
       //If browser does not support transitions, instantly resolve
-      if ( !endEventName ) {
-        deferred.resolve(element);
+      if (_endEventName == null) {
+        //print('completed');
+        //deferred.resolve(element);
+        _completer.complete(_element);
       }
     });
 
-    // Add our custom cancel function to the promise that is returned
-    // We can call this if we are about to run a new transition, which we know will prevent this transition from ending,
-    // i.e. it will therefore never raise a transitionEnd event for that transition
-    deferred.promise.cancel = () {
-      if ( endEventName ) {
-        if(transitionEndEventSubscription != null) {
-          transitionEndEventSubscription.cancel();
-        }
-      }
-      deferred.reject('Transition cancelled');
-    };
+    // timeout
+//    new Timer(new Duration(milliseconds: 2000), () {
+//      if(!_completer.isCompleted) {
+//        cancel();
+//      }
+//    });
 
-    return deferred.promise;
+    return _completer.future;
+  }
+
+  // Add our custom cancel function to the promise that is returned
+  // We can call this if we are about to run a new transition, which we know will prevent this transition from ending,
+  // i.e. it will therefore never raise a transitionEnd event for that transition
+  // deferred.promise.cancel = ()*/ () {
+  void cancel() {
+    if (_endEventName != null ) {
+      if(transitionEndEventSubscription != null) {
+        transitionEndEventSubscription.cancel();
+      }
+    }
+    if(!_completer.isCompleted) {
+      //deferred.reject('Transition cancelled');
+      //print('cancel completer');
+      _completer.completeError('Transition cancelled');
+    }
   }
 }
 

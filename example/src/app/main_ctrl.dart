@@ -12,6 +12,7 @@ class MainController {
   var _url = "http://50.116.42.77:3001";
   final ModulesList _modules;
   final Package _package;
+  bool isCollapsed = true; // TODO why did the page throw an exception if this property is missing.
 
   MainController(this._scope, this._http, this._document, this._modal, this._orderByFilter,
       this._modules, this._package) {

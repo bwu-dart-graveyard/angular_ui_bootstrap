@@ -8,9 +8,8 @@ part 'accordion_group.dart';
 class AccordionModule extends ng.Module {
   AccordionModule() {
     type(AccordionComponent);
-    type(AccordionHeading);
-    type(AccordionTransclude);
-    type(AccordionGroup);
+    type(AccordionHeadingComponent);
+    type(AccordionGroupComponent);
     value(AccordionConfig, new AccordionConfig());
   }
 }
@@ -22,45 +21,60 @@ class AccordionConfig {
 @ng.NgComponent(
     selector: 'accordion',
     publishAs: 'ctrl',
-    templateUrl: 'packages/bootstrap_angular/accordion/accordion.html')
-class AccordionComponent {
-  final ng.Scope _scope;
-  final ng.NodeAttrs _attrs;
-  final AccordionConfig _config;
-  List<ng.Scope> _groups = [];
+    visibility: ng.NgDirective.CHILDREN_VISIBILITY,
+    templateUrl: 'packages/bootstrap_angular/accordion/accordion.html',
+    cssUrls: const ['assets/css/default_component.css'],
+    applyAuthorStyles: true
+    //cssUrl: '//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'
+)
+class AccordionComponent implements ng.NgAttachAware {
+  @ng.NgTwoWay('close-others') bool isCloseOthers;
 
-  AccordionComponent(this._scope, this._attrs, this._config) //; // TODO accordionConfig (closeOthers)
+  final ng.Scope scope;
+  final AccordionConfig _config;
+
+  /*
+   * This array keeps track of the accordion groups
+   */
+  List<AccordionGroupComponent> _groups = [];
+
+  AccordionComponent(this.scope, this._config)
   {
     print('AccordionComponent');
   }
 
-  void closeOthers(ng.Scope openGroup) {
-    var closeOthers = _attrs['closeOthers'] != null ? _scope.$eval(_attrs['closeOthers']) : _config.closeOthers;
-
-    if(closeOthers) {
+  /*
+   * Ensure that all the groups in this accordion are closed, unless close-others explicitly says not to
+   */
+  void closeOthers(AccordionGroupComponent openGroup) {
+    isCloseOthers = isCloseOthers != null ? isCloseOthers : _config.closeOthers;
+    if(isCloseOthers) {
       _groups.forEach((e) {
-        if(e != openGroup) {
-          e['isOpen'] = false;
+
+        if(e != openGroup && e.isOpen != null && e.isOpen) {
+          e.isOpen = false;
         }
       });
     }
   }
 
-  void addGroup(ng.Scope groupScope) {
+  /*
+   * This is called from the accordion-group directive to add itself to the accordion
+   */
+  void addGroup(AccordionGroupComponent groupScope) {
     _groups.add(groupScope);
 
-    groupScope.$on('destroy', (e) => removeGroup(groupScope)); // TODO type annotation e
+    groupScope.scope.$on('destroy', (e) => removeGroup(groupScope)); // TODO type annotation e
   }
 
-  ng.Scope removeGroup(ng.Scope groupScope) {
+  /*
+   *  This is called from the accordion-group directive when to remove itself
+   */
+  ng.Scope removeGroup(AccordionGroupComponent groupScope) {
     _groups.remove(groupScope);
   }
-}
 
-class AccordionHeading {
-
-}
-
-class AccordionTransclude {
-
+  void attach() {
+    //print('close-others: $isCloseOthers');
+  }
 }

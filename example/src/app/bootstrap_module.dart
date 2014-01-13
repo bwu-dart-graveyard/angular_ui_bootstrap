@@ -45,10 +45,10 @@ class BootstrapModule {
 class ModulesList implements List<BootstrapModule> {
   static final List<BootstrapModule> _modules = [
      new BootstrapModule('accordion', 'Accordion'),
-//     new BootstrapModule('alert', 'Alert'),
+     new BootstrapModule('alert', 'Alert'),
 //     new BootstrapModule('buttons', 'Buttons'),
 //     new BootstrapModule('carousel', 'Carousel'),
-//     new BootstrapModule('collapse', 'Collapse'),
+     new BootstrapModule('collapse', 'Collapse'),
 //     new BootstrapModule('datepicker', 'Datepicker'),
 //     new BootstrapModule('dropdown_toggle', 'Dropdown Toggle'),
 //     new BootstrapModule('modal', 'Modal'),

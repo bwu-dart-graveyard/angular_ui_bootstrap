@@ -10,7 +10,7 @@ class AccordionDemoController {
     print('AccordionDemoController');
   }
 
-  final bool oneAtATime = true;
+  bool oneAtATime = true;
 
   final List<Map<String, String>> groups = [
       {

@@ -1,6 +1,5 @@
 library bootstrap_angular.elements.rating;
 
-import 'dart:html' as dom;
 import 'package:angular/angular.dart' as ng;
 
 class RatingModule extends ng.Module {
@@ -19,9 +18,14 @@ class RatingConfig {
 @ng.NgComponent(
     selector: 'rating',
     publishAs: 'ctrl',
-    templateUrl: 'packages/bootstrap_angular/rating/rating.html',
-    cssUrl: '//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css',
-    applyAuthorStyles: true)
+    //templateUrl: 'packages/bootstrap_angular/rating/rating.html',
+    template: r'''
+<span ng-mouseleave="ctrl.reset()">
+  <i ng-repeat="r in ctrl.range" ng-mouseenter="ctrl.enter($index + 1)" ng-click="ctrl.rate($index + 1)" class="glyphicon" ng-class="ctrl.stateClass($index, r)"></i>
+</span>
+''',
+    applyAuthorStyles: true
+)
 class RatingComponent implements ng.NgAttachAware {
   //final ng.Scope _scope;
   //final ng.NodeAttrs _attrs;

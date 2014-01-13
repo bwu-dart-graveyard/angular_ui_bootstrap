@@ -12,6 +12,8 @@ import 'package:bootstrap_angular/elements.dart';
 // import 'package:perf_api/perf_api.dart';
 
 import 'src/accordion/demo.dart';
+import 'src/alert/demo.dart';
+import 'src/collapse/demo.dart';
 import 'src/modal/demo.dart';
 import 'src/rating/demo.dart';
 
@@ -35,13 +37,16 @@ class BootstrapDemoApp extends ng.Module {
     type(HeadController);
     type(MainController);
     type(AccordionDemoController);
+    type(AlertDemoController);
+    type(CollapseDemoController);
     type(PlunkerController);
     type(PlunkerContentDirective);
     type(ModalDemoController);
     type(RatingDemoController);
 
     install(new AccordionModule());
-    type(Collapse);
+    type(AlertComponent);
+    type(CollapseDirective);
     install(new ModalModule());
     install(new RatingModule());
     type(Transition);
