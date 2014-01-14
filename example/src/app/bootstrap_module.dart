@@ -55,8 +55,8 @@ class ModulesList implements List<BootstrapModule> {
 //     new BootstrapModule('pagination', 'Pagination'),
 //     new BootstrapModule('popover', 'Popover'),
 //     new BootstrapModule('progressbar', 'Progressbar'),
-     new BootstrapModule('rating', 'Rating')//,
-//     new BootstrapModule('tabs' , 'Tabs'),
+     new BootstrapModule('rating', 'Rating'),
+     new BootstrapModule('tabs' , 'Tabs'),
 //     new BootstrapModule('timepicker', 'Timepicker'),
 //     new BootstrapModule('tooltip', 'Tooltip'),
 //     new BootstrapModule('typeahead', 'Typeahead')

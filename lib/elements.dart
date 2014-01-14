@@ -9,6 +9,7 @@ export 'alert/alert.dart';
 export 'dropdown_toggle/dropdown_toggle.dart';
 export 'modal/modal.dart';
 export 'rating/rating.dart';
+export 'tabs/tabs.dart';
 
 part 'collapse/collapse.dart';
 part 'transition/transition.dart';

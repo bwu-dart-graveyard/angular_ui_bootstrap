@@ -17,6 +17,7 @@ import 'src/collapse/demo.dart';
 import 'src/dropdown_toggle/demo.dart';
 import 'src/modal/demo.dart';
 import 'src/rating/demo.dart';
+import 'src/tabs/demo.dart';
 
 
 part 'src/app/bootstrap_module.dart';
@@ -45,6 +46,7 @@ class BootstrapDemoApp extends ng.Module {
     type(PlunkerContentDirective);
     type(ModalDemoController);
     type(RatingDemoController);
+    type(TabsDemoController);
 
     install(new AccordionModule());
     type(AlertComponent);
@@ -52,6 +54,7 @@ class BootstrapDemoApp extends ng.Module {
     type(DropdownToggleController);
     install(new ModalModule());
     install(new RatingModule());
+    install(new TabsModule());
     type(Transition);
     //factory(new ModalFactory(), )
 
