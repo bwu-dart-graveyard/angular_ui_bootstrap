@@ -1,6 +1,8 @@
 library bootstrap_angular.demo.alert;
 
+import 'package:observe/observe.dart' show reflectable;
 import 'package:angular/angular.dart' as ng;
+
 
 @ng.NgController(
     selector: '[ng-controller=alert-demo-ctrl]',
@@ -20,6 +22,7 @@ class AlertDemoController {
     alerts.add({'msg': 'Another alert!'});
   }
 
+  @reflectable
   void closeAlert(int index) {
     if(alerts.length > index) {
       alerts.removeAt(index);

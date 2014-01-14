@@ -3,6 +3,7 @@ library bootstrap_angular.elements.alert;
 //import 'dart:html' as dom;
 //import 'dart:async';
 import 'package:angular/angular.dart' as ng;
+import 'package:observe/observe.dart' show reflectable;
 
 @ng.NgComponent(
     selector: 'alert',
@@ -14,7 +15,7 @@ import 'package:angular/angular.dart' as ng;
 )
 class AlertComponent implements ng.NgAttachAware {
 
-  @ng.NgCallback('close') CloseFunc close;
+  @reflectable @ng.NgCallback('close') CloseFunc close;
   @ng.NgTwoWay('type') String type;
   bool closeable;
   ng.Scope _scope;
