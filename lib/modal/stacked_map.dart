@@ -1,4 +1,4 @@
-part of bootstrap_angular.elements.modal;
+part of angular_ui_bootstrap.elements.modal;
 
 /**
  * A helper, internal data structure that acts as a map but also allows getting / removing

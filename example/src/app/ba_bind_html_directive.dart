@@ -1,4 +1,4 @@
-part of bootstrap_angular.demo;
+part of angular_ui_bootstrap.demo;
 
 /**
  * Creates a binding that will innerHTML the result of evaluating the

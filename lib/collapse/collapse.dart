@@ -1,4 +1,9 @@
-part of bootstrap_angular.elements;
+library angular_ui_bootstrap.elements.collapse;
+
+import 'dart:html' as dom;
+import 'dart:async';
+import 'package:angular/angular.dart' as ng;
+import 'package:angular_ui_bootstrap/transition/transition.dart';
 
 /**
  * The collapsible directive indicates a block of html that will expand and collapse

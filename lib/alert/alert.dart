@@ -1,4 +1,4 @@
-library bootstrap_angular.elements.alert;
+library angular_ui_bootstrap.elements.alert;
 
 //import 'dart:html' as dom;
 //import 'dart:async';
@@ -9,7 +9,7 @@ import 'package:observe/observe.dart' show reflectable;
     selector: 'alert',
     publishAs: 'ctrl',
     visibility: ng.NgDirective.CHILDREN_VISIBILITY,
-    templateUrl: 'packages/bootstrap_angular/alert/alert.html',
+    templateUrl: 'packages/angular_ui_bootstrap/alert/alert.html',
     cssUrls: const ['assets/css/default_component.css'],
     applyAuthorStyles: true
 )

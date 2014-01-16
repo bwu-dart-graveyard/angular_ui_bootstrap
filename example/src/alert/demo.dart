@@ -1,4 +1,4 @@
-library bootstrap_angular.demo.alert;
+library angular_ui_bootstrap.demo.alert;
 
 import 'package:observe/observe.dart' show reflectable;
 import 'package:angular/angular.dart' as ng;

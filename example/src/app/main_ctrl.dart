@@ -1,4 +1,4 @@
-part of bootstrap_angular.demo;
+part of angular_ui_bootstrap.demo;
 
 @ng.NgController(
     selector: '[ng-controller=main-ctrl]',

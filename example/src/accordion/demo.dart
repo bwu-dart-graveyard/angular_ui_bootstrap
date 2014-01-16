@@ -1,4 +1,4 @@
-library bootstrap_angular.demo.accordion;
+library angular_ui_bootstrap.demo.accordion;
 
 import 'package:angular/angular.dart' as ng;
 

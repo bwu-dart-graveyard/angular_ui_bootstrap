@@ -1,8 +1,8 @@
-part of bootstrap_angular.elements.modal;
+part of angular_ui_bootstrap.elements.modal;
 
 @ng.NgComponent(
   selector: 'modal-window',
-  templateUrl: 'packages/bootstrap_angular/modal/window.html',
+  templateUrl: 'packages/angular_ui_bootstrap/modal/window.html',
   publishAs: 'ctrl',
   publishTypes: const [ModalComponent]
 )

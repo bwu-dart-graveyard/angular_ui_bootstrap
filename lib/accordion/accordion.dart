@@ -1,6 +1,7 @@
-library bootstrap_angular.elements.accordion;
+library angular_ui_bootstrap.elements.accordion;
 
 import 'package:angular/angular.dart' as ng;
+import 'package:angular_ui_bootstrap/injectable_service.dart';
 
 part 'accordion_group.dart';
 
@@ -14,6 +15,7 @@ class AccordionModule extends ng.Module {
   }
 }
 
+@InjectableService()
 class AccordionConfig {
   bool closeOthers = true;
 }
@@ -22,7 +24,7 @@ class AccordionConfig {
     selector: 'accordion',
     publishAs: 'ctrl',
     visibility: ng.NgDirective.CHILDREN_VISIBILITY,
-    templateUrl: 'packages/bootstrap_angular/accordion/accordion.html',
+    templateUrl: 'packages/angular_ui_bootstrap/accordion/accordion.html',
     cssUrls: const ['assets/css/default_component.css'],
     applyAuthorStyles: true
     //cssUrl: '//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'

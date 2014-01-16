@@ -1,12 +1,9 @@
-part of bootstrap_angular.demo;
+part of angular_ui_bootstrap.demo;
 
 @ng.NgController(
     selector: '[ng-controller=head-ctrl]',
     publishAs: 'ctrl'
-//    ,map: const {
-//      'allModules': '<=allModules'
-//    }
-    )
+)
 class HeadController {
   ModulesList _modules;
   HeadController(this._modules) {

@@ -1,4 +1,4 @@
-library bootstrap_angular.demo.collapse;
+library angular_ui_bootstrap.demo.collapse;
 
 import 'package:angular/angular.dart' as ng;
 

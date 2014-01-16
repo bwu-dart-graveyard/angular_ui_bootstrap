@@ -1,6 +1,7 @@
-library bootstrap_angular.elements.rating;
+library angular_ui_bootstrap.elements.rating;
 
 import 'package:angular/angular.dart' as ng;
+import 'package:angular_ui_bootstrap/injectable_service.dart';
 
 class RatingModule extends ng.Module {
   RatingModule() {
@@ -9,6 +10,7 @@ class RatingModule extends ng.Module {
   }
 }
 
+@InjectableService()
 class RatingConfig {
   int max = 5;
   String stateOn = null;
@@ -18,7 +20,7 @@ class RatingConfig {
 @ng.NgComponent(
     selector: 'rating',
     publishAs: 'ctrl',
-    //templateUrl: 'packages/bootstrap_angular/rating/rating.html',
+    //templateUrl: 'packages/angular_ui_bootstrap/rating/rating.html',
     template: r'''
 <span ng-mouseleave="ctrl.reset()">
   <i ng-repeat="r in ctrl.range" ng-mouseenter="ctrl.enter($index + 1)" ng-click="ctrl.rate($index + 1)" class="glyphicon" ng-class="ctrl.stateClass($index, r)"></i>
@@ -27,8 +29,7 @@ class RatingConfig {
     applyAuthorStyles: true
 )
 class RatingComponent implements ng.NgAttachAware {
-  //final ng.Scope _scope;
-  //final ng.NodeAttrs _attrs;
+  final ng.Scope _scope;
   final RatingConfig _config;
 
   @ng.NgOneWay('max') int max;
@@ -43,11 +44,8 @@ class RatingComponent implements ng.NgAttachAware {
   int val = 0;
   List<Map> range;
 
-  //ng.Injector _injector;
-  //dom.Element _element;
-
-  RatingComponent(/*this._scope, this._attrs, */ this._config /*, this._element*/) {
-    //print('RatingComponent');
+  RatingComponent(this._scope, this._config ) {
+    print('RatingComponent');
   }
 
   List<Map<String,String>> createRateObjects(List<Map<String,String>> states) {
@@ -105,13 +103,14 @@ class RatingComponent implements ng.NgAttachAware {
         createRateObjects(copy(ratingStates)) :
           this.createRateObjects(new List(maxRange));
     reset();
+
+    _scope.$watch(() => value, reset);
   }
 
   static Map extend(Map dst, List<Map> src) {
     var tmpSrc = new List<Map>.from(src);
 
     while(tmpSrc.length > 0) {
-      //print('tmpSrc: $tmpSrc');
       if(tmpSrc[0] != null) {
         tmpSrc[0].forEach((k, v) {
           if(v != null)
@@ -119,14 +118,12 @@ class RatingComponent implements ng.NgAttachAware {
         });
       }
       tmpSrc.removeAt(0);
-      //extend(dst, tmpSrc);
     }
     return dst;
   }
 
   static dynamic copy(source, [destination]) {
     var dst;
-    //print('source: $source; <=>destination: $destination');
     if(destination != null) {
       if(source is List) {
         dst = new List();

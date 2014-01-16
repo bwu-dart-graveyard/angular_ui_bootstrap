@@ -1,4 +1,4 @@
-library bootstrap_angular.demo.modal;
+library angular_ui_bootstrap.demo.modal;
 
 import 'package:angular/angular.dart' as ng;
 

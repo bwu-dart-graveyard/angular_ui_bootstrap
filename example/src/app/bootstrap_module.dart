@@ -1,4 +1,4 @@
-part of bootstrap_angular.demo;
+part of angular_ui_bootstrap.demo;
 
 class BootstrapModule {
   final String name;
@@ -42,6 +42,7 @@ class BootstrapModule {
   }
 }
 
+@InjectableService()
 class ModulesList implements List<BootstrapModule> {
   static final List<BootstrapModule> _modules = [
      new BootstrapModule('accordion', 'Accordion'),

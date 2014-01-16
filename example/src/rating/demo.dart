@@ -1,4 +1,4 @@
-library bootstrap_angular.demo.rating;
+library angular_ui_bootstrap.demo.rating;
 
 import 'package:angular/angular.dart' as ng;
 
@@ -24,7 +24,7 @@ class RatingDemoController {
                                            ];
 
   RatingDemoController(this._scope) {
-    // print('RatingDemoController');
+    print('RatingDemoController');
   }
 
   void hoveringOver(int value) {

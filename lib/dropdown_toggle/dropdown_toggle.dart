@@ -1,4 +1,4 @@
-library bootstrap_angular.elements.dropdown_toggle;
+library angular_ui_bootstrap.elements.dropdown_toggle;
 
 import 'dart:html' as dom;
 import 'dart:async' show StreamSubscription;

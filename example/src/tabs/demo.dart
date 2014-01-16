@@ -1,4 +1,4 @@
-library bootstrap_angular.demo.tabs;
+library angular_ui_bootstrap.demo.tabs;
 
 import 'dart:async' show Timer;
 import 'dart:html' as dom;

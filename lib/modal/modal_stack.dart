@@ -1,5 +1,6 @@
-part of bootstrap_angular.elements.modal;
+part of angular_ui_bootstrap.elements.modal;
 
+@InjectableService()
 class ModalStack {
   final dom.HtmlDocument _document;
   final ng.Scope _scope;

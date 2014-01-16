@@ -1,4 +1,8 @@
-part of bootstrap_angular.elements;
+library angular_ui_bootstrap.elements.transition;
+
+import 'dart:async';
+import 'dart:html' as dom;
+import 'package:angular_ui_bootstrap/injectable_service.dart';
 
 /**
  * $transition service provides a consistent interface to trigger CSS 3 transitions and to be informed when they complete.
@@ -9,6 +13,7 @@ part of bootstrap_angular.elements;
  *   - As a function, it represents a function to be called that will cause the transition to occur.
  * @return {Promise}  A promise that is resolved when the transition finishes.
  */
+@InjectableService()
 class Transition implements Function {
   //var q;
   //@ng.NgAttr('timeout') var timeout;
@@ -70,7 +75,7 @@ class Transition implements Function {
 
     // timeout
 //    new Timer(new Duration(milliseconds: 2000), () {
-//      if(!_completer.isCompleted) {
+//      if(!_completer.isCompleted) {@InjectableService()
 //        cancel();
 //      }
 //    });

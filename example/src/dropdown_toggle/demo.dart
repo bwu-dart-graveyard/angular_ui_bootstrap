@@ -1,4 +1,4 @@
-library bootstrap_angular.demo.dropdown_toggle;
+library angular_ui_bootstrap.demo.dropdown_toggle;
 
 import 'package:angular/angular.dart' as ng;
 

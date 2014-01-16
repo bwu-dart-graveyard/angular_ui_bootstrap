@@ -1,4 +1,4 @@
-part of bootstrap_angular.demo;
+part of angular_ui_bootstrap.demo;
 
 @ng.NgController(
     selector: '[ng-controller=plunker-ctrl]',
@@ -38,7 +38,7 @@ class PlunkGenerator {
 
   static void generate(String ngVersion, String bsVersion, String version, String module, Map content) {
     dom.FormElement form = new dom.Element.html('<form style="display: none;" method="post" action="http://plnkr.co/edit/?p=preview" target="_blank"></form>') as dom.FormElement;
-    addField(form, 'description', 'http://angular-ui.github.io/bootstrap/');
+    addField(form, 'description', 'http://bwu-dart.github.io/angular_ui_bootstrap/');
     addField(form, 'files[index.html]', indexContent(ngVersion, bsVersion, version, content['markup']));
     addField(form, 'files[example.js]', scriptContent(content['javascript']));
     dom.document.body.append(form);
@@ -59,7 +59,7 @@ class PlunkGenerator {
 <html ng-app="plunker">
   <head>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/${ngVersion}/angular.js"></script>
-    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-${version}.js"></script>
+    <script src="http://bwu-dart.github.io/angular_ui_bootstrap/ui-bootstrap-tpls-${version}.js"></script> <!-- TODO -->
     <script src="example.js"></script>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/${bsVersion}/css/bootstrap-combined.min.css" rel="stylesheet">
   </head>

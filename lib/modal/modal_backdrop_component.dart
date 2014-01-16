@@ -1,4 +1,4 @@
-part of bootstrap_angular.elements.modal;
+part of angular_ui_bootstrap.elements.modal;
 
 
 
@@ -7,7 +7,7 @@ part of bootstrap_angular.elements.modal;
  */
 @ng.NgComponent(
   selector: 'modal-backdrop',
-  templateUrl: 'packages/bootstrap_angular/modal/backdrop.html',
+  templateUrl: 'packages/angular_ui_bootstrap/modal/backdrop.html',
   publishAs: 'ctrl',
   publishTypes: const [ModalComponent]
 )

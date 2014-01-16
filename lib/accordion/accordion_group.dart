@@ -1,10 +1,10 @@
-part of bootstrap_angular.elements.accordion;
+part of angular_ui_bootstrap.elements.accordion;
 
 @ng.NgComponent(
     selector: 'accordion-group',
     publishAs: 'ctrl',
     visibility: ng.NgDirective.CHILDREN_VISIBILITY,
-    templateUrl: 'packages/bootstrap_angular/accordion/accordion_group.html',
+    templateUrl: 'packages/angular_ui_bootstrap/accordion/accordion_group.html',
     cssUrls: const ['assets/css/default_component.css'],
     applyAuthorStyles: true
 )

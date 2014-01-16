@@ -1,7 +1,8 @@
-library bootstrap_angular.elements.modal;
+library angular_ui_bootstrap.elements.modal;
 
 import 'dart:html' as dom;
 import 'package:angular/angular.dart' as ng;
+import 'package:angular_ui_bootstrap/injectable_service.dart';
 
 part 'modal_backdrop_component.dart';
 part 'modal_stack.dart';
@@ -22,7 +23,7 @@ class ModalModule extends ng.Module {
 @ng.NgComponent(
     selector: 'modal-xxx',
     publishAs: 'ctrl',
-    templateUrl: 'packages/bootstrap_angular/modal/modal.html')
+    templateUrl: 'packages/angular_ui_bootstrap/modal/modal.html')
 class ModalComponent {
 
   ModalComponent() {

@@ -5,9 +5,9 @@
   </div>
 
 
-   <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
+   <pre class="alert alert-info">Time is: {{mytime }}</pre>  <!-- TODO filter date: {{mytime | date:'shortTime' }} -->
 
-  <div class="row"> 
+  <div class="row">
     <div class="col-xs-6">
         Hours step is:
       <select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>

@@ -1,4 +1,4 @@
-library bootstrap_angular.test.elements.rating;
+library angular_ui_bootstrap.test.elements.rating;
 
 import 'dart:html' as dom;
 import 'dart:async';
@@ -7,7 +7,7 @@ import 'package:unittest/html_enhanced_config.dart';
 import 'package:angular/angular.dart' as ng;
 import 'package:angular/mock/module.dart' as ngMock;
 
-import 'package:bootstrap_angular/rating/rating.dart';
+import 'package:angular_ui_bootstrap/rating/rating.dart';
 
 
 void main() {
@@ -36,7 +36,7 @@ void main() {
         _tb.rootScope.$apply();
         _tb.rootScope.$digest();
 
-        //f = dom.HttpRequest.getString('/bootstrap_angular/packages/bootstrap_angular/rating/rating.html')
+        //f = dom.HttpRequest.getString('/angular_ui_bootstrap/packages/angular_ui_bootstrap/rating/rating.html')
         //.then((ratingTemplate) {
         //  _backend = new ngMock.MockHttpBackend();
 
