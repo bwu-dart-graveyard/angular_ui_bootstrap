@@ -1,4 +1,4 @@
-# This project is discontinued - further development is done at https://github.com/akserg/angular.dart.ui
+### This project is discontinued - further development is done at https://github.com/akserg/angular.dart.ui
 
 # bootstrap - [AngularDart](http://angularjs.org/) directives specific to [twitter bootstrap](http://twitter.github.io/bootstrap/)
 
